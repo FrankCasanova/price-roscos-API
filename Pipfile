@@ -9,6 +9,7 @@ uvicorn = "*"
 bs4 = "*"
 pre-commit = "*"
 requests = "*"
+selenium = "*"
 
 [dev-packages]
 jupyter = "*"
