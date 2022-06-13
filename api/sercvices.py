@@ -19,6 +19,11 @@ CARREFOUR_URL = _req.get(
     headers=headers,
 )
 
+MAS_URL = _req.get(
+    "https://www.supermercadosmas.com/panaderia-bolleria-pasteleria/colines-integrales-mas-250g",
+    headers=headers,
+)
+
 
 def scraping_el_jamon():
     webdriver = _webdriver.Firefox()
@@ -46,7 +51,7 @@ def scraping_el_jamon():
     ).__getattribute__("text")
     webdriver.quit()
 
-    return print({"title": title, "price": price, "price_kg": price_kg})
+    return {"title": title, "price": price, "price_kg": price_kg}
 
 
 def scraping_dia():
@@ -59,7 +64,7 @@ def scraping_dia():
         .replace("\xa0", "")
     )
 
-    return print({"title": title, "price": price, "price_kg": price_kg})
+    return {"title": title, "price": price, "price_kg": price_kg}
 
 
 def scraping_carrefour():
@@ -76,15 +81,13 @@ def scraping_carrefour():
         .replace("\n", "")
     )
 
-    return print({"title": title, "price": price, "price_kg": price_kg})
+    return {"title": title, "price": price, "price_kg": price_kg}
 
 
-print("-----------------------------------------------")
-print("El jamon")
-scraping_el_jamon()
-print("-----------------------------------------------")
-print("Carrefour")
-scraping_carrefour()
-print("-----------------------------------------------")
-print("Dia")
-scraping_dia()
+def scraping_mas():
+    mas_soup = _bs(MAS_URL.content, "html.parser")
+    title = mas_soup.find("span", class_="base").text
+    price = mas_soup.find("span", class_="price").text.replace("\xa0", "")
+    price_kg = mas_soup.find("span", class_="unit").text
+
+    return {"title": title, "price": price, "price_kg": price_kg}
