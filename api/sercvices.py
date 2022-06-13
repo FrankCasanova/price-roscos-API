@@ -51,12 +51,11 @@ def scraping_el_jamon():
     )
     webdriver.implicitly_wait(5)
     # webdriver.find_element("id", "aceptar").click()
-    # webdriver.find_element(
-    #     "xpath", '//*[@id="CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll"]'
-    # ).click()
+    
     webdriver.find_element(
-        "id", "CybotCookiebotDialog"
-    ).click()  # click on the cookie button, error at deploying on heroku.
+        "xpath", '//*[@id="CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll"]'
+    ).click()
+    
     webdriver.find_element("xpath", '//*[@id="button"]').click()
     webdriver.find_element("xpath", '//*[@id="seleccionarCp"]').send_keys("21004")
     webdriver.find_element("xpath", '//*[@id="aceptarPorCp"]').click()
