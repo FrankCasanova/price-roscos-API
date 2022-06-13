@@ -10,6 +10,7 @@ bs4 = "*"
 pre-commit = "*"
 requests = "*"
 selenium = "*"
+gunicorn = "*"
 
 [dev-packages]
 jupyter = "*"
