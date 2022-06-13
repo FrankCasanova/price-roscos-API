@@ -33,15 +33,13 @@ def scraping_el_jamon():
     this function returns a dictionary with the title, price and price_kg
     it use selenium to open the browser and scrape the website
     instructions in:
-    https://romik-kelesh.medium.com/how-to-deploy-a-python-web-scraper-with-selenium-on-heroku-1459cb3ac76c
+    https://www.andressevilla.com/running-chromedriver-with-python-selenium-on-heroku/
     """
 
     chrome_options = _webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920x1080")
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 
     webdriver = _webdriver.Chrome(
