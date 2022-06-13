@@ -11,7 +11,12 @@ def index():
     }
 
 
-def get_prices():
+def get_prices() -> dict:
+    """
+    ### Endopoint to get the prices of the products
+    - returns a dictionary with the title, price and price_kg
+
+    """
     el_jamon = scraping_el_jamon()
     dia = scraping_dia()
     carrefour = scraping_carrefour()
