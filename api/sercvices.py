@@ -41,8 +41,8 @@ def scraping_el_jamon():
     https://www.andressevilla.com/running-chromedriver-with-python-selenium-on-heroku/
     """
     options = _webdriver.FirefoxOptions()
-    # options.log.level = "trace"
-    # options.add_argument("-remote-debugging-port=9224")
+    options.log.level = "trace"
+    options.add_argument("-remote-debugging-port=9224")
     options.add_argument("-headless")
     options.add_argument("-disable-gpu")
     options.add_argument("-no-sandbox")
@@ -95,7 +95,7 @@ def scraping_el_jamon():
         "xpath",
         '//*[@id="_DetalleProductoFoodPortlet_WAR_comerzziaportletsfood_frmDatos"]/h1',
     ).__getattribute__("text")
-    webdriver.get_screenshot_as_file("screenshot.png")
+    # webdriver.get_screenshot_as_file("screenshot.png")
     price = webdriver.find_element(
         "xpath",
         '//*[@id="_DetalleProductoFoodPortlet_WAR_comerzziaportletsfood_frmDatos"]/div[4]/div/span',
