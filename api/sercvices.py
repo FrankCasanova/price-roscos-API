@@ -50,10 +50,10 @@ def scraping_el_jamon():
         "https://www.supermercadoseljamon.com/detalle/-/Producto/picos-finos-integrales-250g/23025302"
     )
     webdriver.implicitly_wait(5)
-    webdriver.find_element("id", "aceptar").click()
-    webdriver.find_element(
-        "xpath", '//*[@id="CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll"]'
-    ).click()
+    # webdriver.find_element("id", "aceptar").click()
+    # webdriver.find_element(
+    #     "xpath", '//*[@id="CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll"]'
+    # ).click()
     webdriver.find_element("xpath", '//*[@id="button"]').click()
     webdriver.find_element("xpath", '//*[@id="seleccionarCp"]').send_keys("21004")
     webdriver.find_element("xpath", '//*[@id="aceptarPorCp"]').click()
